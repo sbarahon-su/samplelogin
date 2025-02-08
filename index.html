@@ -82,33 +82,6 @@
         
         // Get a reference to the database service
         const db = getDatabase(app);
-
-        // Function to save user data
-        function saveUserData(name, email, password) {
-            const usersRef = ref(db, "users");
-            const newUserRef = push(usersRef); // Generate unique ID
-            set(newUserRef, {
-                name: name,
-                email: email,
-                password: password
-            })
-            .then(() => {
-
-                // document.getElementById("signupform").reset(); // Clear form
-                window.location.href = "confirmation.html";
-            })
-            .catch((error) => {
-                console.error("Error saving data:", error);
-            });
-        }
-        // Handle form submission
-        document.getElementById("signupform").addEventListener("submit", function (e) {
-            e.preventDefault(); // Prevent page refresh
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            saveUserData(name, email, password);
-        });
     </script>
 </body>
 </html>
